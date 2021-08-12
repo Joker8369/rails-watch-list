@@ -1,0 +1,22 @@
+<h1>Lists#index</h1>
+<p>Find me in app/views/lists/index.html.erb</p>
+
+<h2> Movies</h2>
+<ul>
+<% @Movies.each do|movie|%>
+<li>
+<%= link_to movie.title, list_path(movie) %><br>
+<%= link_to movie.poster_url, list_path(movie) %><br>
+<%= link_to movie.average, list_path(movie) %><br>
+<%= link_to movie.overview, list_path(movie) %><br>
+<%= link_to "Delete #{movie.title}",
+            movie_path(movie),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %><br>
+</li>
+<br>
+<% end %>
+</ul>
+<%= link_to "Add a new task", new_path%>
+
+<p> Finish !</p>
