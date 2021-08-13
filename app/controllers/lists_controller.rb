@@ -1,6 +1,7 @@
 class ListsController < ApplicationController
   def index
     @lists = List.all
+    @movies = Movie.all
   end
 
   def show
@@ -14,7 +15,7 @@ class ListsController < ApplicationController
   def create
     @list = List.create(lists_params)
     if @list.save
-      redirect_to list_path(@list)
+      redirect_to lists_path(@list)
     else
       render :new
     end
@@ -30,9 +31,9 @@ class ListsController < ApplicationController
   end
 
   def destroy
-    @movie = List.find(params[:id])
-    @movie.delete
-    redirect_to root_path
+    @list = List.find(params[:id])
+    @list.delete
+    redirect_to list_path
   end
 
   def lists_params

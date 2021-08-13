@@ -1,22 +1,28 @@
-<h1>Lists#index</h1>
-<p>Find me in app/views/lists/index.html.erb</p>
+<h1>Watch List</h1>
+<div class="containerlist">
+<h2> Lists</h2>
+  <% @lists.each do|list|%>
+    <div class= "card-trip">
+      <img src="https://loremflickr.com/320/240/<%= list.name %>" />
+        <div class="card-trip-infos">
+          <%= link_to list.name, list_path(list) %><br>
+          <br>
+        </div>
+    </div>
+  <% end %>
+<%= link_to "Add a new list", new_list_path%>
 
-<h2> Movies</h2>
-<ul>
-<% @Movies.each do|movie|%>
-<li>
-<%= link_to movie.title, list_path(movie) %><br>
-<%= link_to movie.poster_url, list_path(movie) %><br>
-<%= link_to movie.average, list_path(movie) %><br>
-<%= link_to movie.overview, list_path(movie) %><br>
-<%= link_to "Delete #{movie.title}",
-            movie_path(movie),
-            method: :delete,
-            data: { confirm: "Are you sure?" } %><br>
-</li>
-<br>
-<% end %>
-</ul>
-<%= link_to "Add a new task", new_path%>
-
-<p> Finish !</p>
+<p> Fin des lists!</p>
+</div>
+<div>
+<h2>Movies</h2>
+  <% @movies.each do|movie|%>
+    <div class="card-product">
+      <img src="<%= movie.poster_url %>"/><br>
+        <div class="card-product-infos">
+          <%= movie.title %><br>
+          <%= movie.rating %><br>
+        </div>
+    </div>
+  <% end %>
+</div>

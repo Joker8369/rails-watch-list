@@ -1,2 +1,12 @@
 <h1>Lists#show</h1>
 <p>Find me in app/views/lists/show.html.erb</p>
+
+
+<% @list.bookmarks.each do |bookmark| %>
+          <img src="<%= bookmark.movie.poster_url %>"/><br>
+          <%= bookmark.movie.title %><br>
+          <%= bookmark.movie.rating %><br>
+          <%= bookmark.comment %><br>
+          <%= link_to "Delete !", bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure?" } %>
+  <% end %>
+<%= link_to "add a bookmark", new_list_bookmark_path(@list) %>
