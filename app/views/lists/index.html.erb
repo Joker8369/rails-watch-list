@@ -3,7 +3,7 @@
 <h2> Lists</h2>
   <% @lists.each do|list|%>
     <div class= "card-trip">
-      <img src="https://loremflickr.com/320/240/<%= list.name %>" />
+     <%= cl_image_path list.photo.key, height: 300, width: 400, crop: :fill %>
         <div class="card-trip-infos">
           <%= link_to list.name, list_path(list) %><br>
           <br>
