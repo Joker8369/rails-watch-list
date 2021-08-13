@@ -3,7 +3,7 @@
 #
 # Examples:
 
-# List.destroy_all
+List.destroy_all
 
 # #
 # require 'json'
