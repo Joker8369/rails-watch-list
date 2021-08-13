@@ -33,7 +33,7 @@ class ListsController < ApplicationController
   def destroy
     @list = List.find(params[:id])
     @list.delete
-    redirect_to list_path
+    redirect_to lists_path
   end
 
   def lists_params
