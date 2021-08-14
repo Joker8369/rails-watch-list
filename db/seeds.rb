@@ -4,7 +4,7 @@
 # Examples:
 
 List.destroy_all
-
+Movie.destroy_all
 #
 require 'json'
 require 'open-uri'
