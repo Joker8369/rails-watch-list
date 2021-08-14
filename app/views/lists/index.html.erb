@@ -3,8 +3,8 @@
 <h2> Lists</h2>
   <% @lists.each do|list|%>
     <div class= "card-trip">
-     <%= cl_image_tag list.photo.key, height: 300, width: 400, crop: :fill
-        <div class="card-trip-infos"> %>
+     <%= cl_image_tag list.photo.key, height: 300, width: 400, crop: :fill %>
+        <div class="card-trip-infos">
           <%= link_to list.name, list_path(list) %><br>
           <%= link_to 'Delete', list_path(list), method: :delete, data: { confirm: "Are you sure?" } %>
           <br>
