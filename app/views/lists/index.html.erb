@@ -4,9 +4,6 @@
   <% @lists.each do|list|%>
     <div class= "card-trip">
      <%= cl_image_tag list.photo.key, height: 100, width: 100, crop: :fill %>
-     <div class="card-category" data-aos="zoom-in" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.photo.attached? ? cl_image_path(list.photo.key) : asset_path('list_background.jpg') %>)">
-            <%= list.name %>
-          </div>
         <div class="card-trip-infos">
           <%= link_to list.name, list_path(list) %><br>
           <%= link_to 'Delete', list_path(list), method: :delete, data: { confirm: "Are you sure?" } %>
