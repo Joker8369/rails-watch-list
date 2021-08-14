@@ -1,28 +1,28 @@
 <h1>Watch List</h1>
 <div class="containerlist">
 <h2> Lists</h2>
+  <div class="cards">
   <% @lists.each do|list|%>
-    <div class= "card-trip">
+    <div class= "card-product">
      <%= cl_image_tag list.photo.key, height: 300, width: 400, crop: :fill %>
-        <div class="card-trip-infos">
-          <%= link_to list.name, list_path(list) %><br>
-          <%= link_to 'Delete', list_path(list), method: :delete, data: { confirm: "Are you sure?" } %>
+        <div class="card-product-infos">
+          <h2><%= link_to list.name, list_path(list) %></h2><br>
+          <p><%= link_to 'Delete', list_path(list), method: :delete, data: { confirm: "Are you sure?" } %></p>
           <br>
         </div>
     </div>
   <% end %>
-<%= link_to "Add a new list", new_list_path%>
-
-<p> Fin des lists!</p>
+  </div>
+<%= link_to "Add a new list", new_list_path, class: "btn btn-gradient"%>
 </div>
-<div>
 <h2>Movies</h2>
+<div class="card-movies">
   <% @movies.each do|movie|%>
-    <div class="card-product">
-      <img src="<%= movie.poster_url %>"/><br>
-        <div class="card-product-infos">
-          <%= movie.title %><br>
-          <%= movie.rating %><br>
+    <div class="card-trip">
+      <img src="<%= movie.poster_url %>"/>
+        <div class="card-trip-infos">
+          <h2><%= movie.title %></h2>
+          <div class="card-star"><%= movie.rating %>⭐</div>
         </div>
     </div>
   <% end %>
